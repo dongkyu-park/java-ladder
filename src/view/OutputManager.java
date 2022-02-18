@@ -18,6 +18,6 @@ public class OutputManager {
     }
 
     public void printPlayerResult(Ladder ladder, String name) {
-        System.out.println(ladder.getPlayerResult(name));
+        System.out.println(name + " : " + ladder.getPlayerResult(name));
     }
 }

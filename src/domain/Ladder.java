@@ -49,7 +49,7 @@ public class Ladder {
         int lastRowLineIndex = calculateLastRowLineIndex(nameTagIndex, numberOfRowStartWithEmpty);
         int resultTagIndex = calculateResultTagIndex(lastRowLineIndex, numberOfRowStartWithEmpty);
 
-        return resultTags.get(resultTagIndex).getResultTag();
+        return resultTags.get(resultTagIndex).getResult();
     }
 
     private int calculateLastRowLineIndex(int nameTagIndex, int numberOfRowStartWithEmpty) {

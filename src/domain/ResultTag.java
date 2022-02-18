@@ -3,9 +3,11 @@ package domain;
 public class ResultTag extends ShapeInitializer{
     public static final int RESULT_TAG_SIZE = NameTag.NAME_TAG_SIZE;
 
+    private String result;
     private String resultTag;
 
     public ResultTag(String result) {
+        this.result = result;
         this.resultTag = wrapResult(result);
     }
 
@@ -25,6 +27,10 @@ public class ResultTag extends ShapeInitializer{
 
     private boolean isEven(int number) {
         return number % 2 == 0;
+    }
+
+    public String getResult() {
+        return result;
     }
 
     public String getResultTag() {
