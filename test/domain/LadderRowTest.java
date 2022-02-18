@@ -1,3 +1,5 @@
+package domain;
+
 import domain.LadderRow;
 import org.junit.jupiter.api.Test;
 

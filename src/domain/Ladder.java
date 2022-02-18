@@ -5,14 +5,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Ladder extends ShapeInitializer{
+public class Ladder {
     private List<LadderRow> ladderRows;
     private List<NameTag> nametags;
+    private List<ResultTag> resultTags;
     private int numberOfPlayer;
 
-    public Ladder(String[] names, int ladderDepth) {
+    public Ladder(String[] names, String[] results, int ladderDepth) {
         this.ladderRows = new ArrayList<>();
         this.nametags = new ArrayList<>();
+        this.resultTags = new ArrayList<>();
         this.numberOfPlayer = names.length;
 
         Arrays.stream(names)
