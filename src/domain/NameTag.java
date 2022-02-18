@@ -3,9 +3,7 @@ package domain;
 import view.InputManager;
 
 public class NameTag extends ShapeInitializer{
-    public static final int LEFT_PADDING_SIZE = 1;
-    public static final int RIGHT_PADDING_SIZE = 1;
-    public static final int NAME_TAG_SIZE = InputManager.LIMIT_NAME_LENGTH + LEFT_PADDING_SIZE + RIGHT_PADDING_SIZE;
+    public static final int NAME_TAG_SIZE = InputManager.LIMIT_NAME_LENGTH + InputManager.LEFT_PADDING_SIZE + InputManager.RIGHT_PADDING_SIZE;
 
     private String nameTag;
 
