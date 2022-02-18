@@ -1,4 +1,5 @@
 import domain.Ladder;
+import domain.LadderRow;
 import view.InputManager;
 import view.OutputManager;
 
@@ -10,6 +11,11 @@ public class Main {
         Ladder ladder = new Ladder(enterNames(), enterResult(), enterLadderDepth());
         out.println("");
         out.printLadderModel(ladder);
+        out.println("");
+
+        while (true) {
+            enterNameWantShowResult(ladder);
+        }
     }
 
     public static String[] enterNames() {
@@ -39,5 +45,29 @@ public class Main {
             enterResult();
         }
         return results;
+    }
+
+    public static void enterNameWantShowResult(Ladder ladder) {
+        out.println("결과를 보고 싶은 사람은?");
+        String name = in.inputString();
+
+        if (name.equals("all")) {
+            showAll(ladder);
+            return;
+        }
+        out.printPlayerResult(ladder, validateGameEnd(name));
+    }
+
+    public static void showAll(Ladder ladder) {
+        ladder.getNameTags().stream()
+                .forEach(index -> out.printPlayerResult(ladder, validateGameEnd(index.getNameTag())));
+    }
+
+    private static String validateGameEnd(String name) {
+        if (name.equals("춘식이")) {
+            out.println("\r\n게임을 종료합니다.");
+            System.exit(0);
+        }
+        return name;
     }
 }

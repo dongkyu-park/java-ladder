@@ -38,4 +38,8 @@ public class Ladder {
     public ArrayList<LadderRow> getLadderRows() {
         return (ArrayList<LadderRow>) ladderRows;
     }
+
+    public String getPlayerResult(String name) {
+        return "";
+    }
 }

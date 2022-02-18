@@ -15,6 +15,9 @@ public class OutputManager {
                 .forEach(LadderRow -> System.out.println(LadderRow.getRow()));
         ladder.getResultTags().stream()
                 .forEach(resultTag -> System.out.print(resultTag.getResultTag()));
-        println("");
+    }
+
+    public void printPlayerResult(Ladder ladder, String name) {
+        System.out.println(ladder.getPlayerResult(name));
     }
 }
