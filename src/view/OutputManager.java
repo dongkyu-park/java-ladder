@@ -13,5 +13,8 @@ public class OutputManager {
         println("");
         ladder.getLadderRows().stream()
                 .forEach(LadderRow -> System.out.println(LadderRow.getRow()));
+        ladder.getResultTags().stream()
+                .forEach(resultTag -> System.out.print(resultTag.getResultTag()));
+        println("");
     }
 }
