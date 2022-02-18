@@ -5,9 +5,11 @@ import view.InputManager;
 public class NameTag extends ShapeInitializer{
     public static final int NAME_TAG_SIZE = InputManager.LIMIT_NAME_LENGTH + InputManager.LEFT_PADDING_SIZE + InputManager.RIGHT_PADDING_SIZE;
 
+    private String name;
     private String nameTag;
 
     public NameTag(String name) {
+        this.name = name;
         this.nameTag = wrapPlayerName(name);
     }
 
@@ -29,7 +31,15 @@ public class NameTag extends ShapeInitializer{
         return number % 2 == 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String getNameTag() {
         return nameTag;
+    }
+
+    public boolean hasName(String name) {
+        return this.name.equals(name);
     }
 }

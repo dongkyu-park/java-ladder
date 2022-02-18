@@ -60,7 +60,7 @@ public class Main {
 
     public static void showAll(Ladder ladder) {
         ladder.getNameTags().stream()
-                .forEach(index -> out.printPlayerResult(ladder, validateGameEnd(index.getNameTag())));
+                .forEach(nameTag -> out.printPlayerResult(ladder, validateGameEnd(nameTag.getName())));
     }
 
     private static String validateGameEnd(String name) {

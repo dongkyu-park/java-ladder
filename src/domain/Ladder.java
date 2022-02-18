@@ -40,6 +40,36 @@ public class Ladder {
     }
 
     public String getPlayerResult(String name) {
-        return "";
+        int nameTagIndex = getNameTagIndex(name);
+        if (nameTagIndex == -1) {
+            return "존재하지 않는 사용자 입니다.";
+        }
+
+        int numberOfRowStartWithEmpty = ladderRows.get(0).getNumberOfRowStartWithEmpty(); //
+        int lastRowLineIndex = calculateLastRowLineIndex(nameTagIndex, numberOfRowStartWithEmpty);
+        int resultTagIndex = calculateResultTagIndex(lastRowLineIndex, numberOfRowStartWithEmpty);
+
+        return resultTags.get(resultTagIndex).getResultTag();
+    }
+
+    private int calculateLastRowLineIndex(int nameTagIndex, int numberOfRowStartWithEmpty) {
+        int lineIndex = numberOfRowStartWithEmpty + NameTag.NAME_TAG_SIZE * nameTagIndex; // 전달받은 nameTag가 다음에 이동할 row에서 line("|")이 위치한 index값
+        for (int i = 0; i < ladderRows.size(); i++) {
+            lineIndex = ladderRows.get(i).getIndexOfNextDestination(lineIndex);
+        }
+        return lineIndex;
+    }
+
+    private int calculateResultTagIndex(int lastRowLineIndex, int numberOfRowStartWithEmpty) {
+        return (lastRowLineIndex - numberOfRowStartWithEmpty) / NameTag.NAME_TAG_SIZE;
+    }
+
+    private int getNameTagIndex(String name) {
+        for (int i = 0; i < nameTags.size(); i++) {
+            if (nameTags.get(i).getName().equals(name)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
